@@ -1,7 +1,18 @@
 import readlinesync = require("readline-sync");
+import { Produto } from "./src/models/Produto";
+import { ProdutoAcessorio } from "./src/models/ProdutoAcessorio";
+import { ProdutoVestuario } from "./src/models/ProdutoVestuario";
 
 export function main(){
     let opcao: number;
+
+ // Objeto da Classe ProdutoVestuario (Teste)
+    const vestuario: ProdutoVestuario = new ProdutoVestuario(2, "Blusa Oversized Darkness", 120.00, 1, "Algodão", "M");
+    vestuario.visualizar();
+
+    // Objeto da Classe ProdutoAcessorio (Teste)
+    const acessorio: ProdutoAcessorio = new ProdutoAcessorio(3, "Anel de caveira", 150.00, 2, "Prata", "Mao");
+    acessorio.visualizar();
 
     while(true){
         console.log("======= Palindrome | CONTROLE DE ESTOQUE =======");
@@ -68,9 +79,15 @@ export function main(){
 export function sobre(): void {
     console.log("\n*****************************************************");
     console.log("Projeto Desenvolvido por: Ewerton Bezerra");
-    console.log("Generation Brasil - ewertonb@genstudents ");
+    console.log("Generation Brasil - ewertonb@genstudents");
     console.log("github.com/ewertonbds");
     console.log("*****************************************************");
+}
+
+function keyPress(): void {
+    console.log("");
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
 }
 
 main();
